@@ -4,8 +4,6 @@ Body {
   }  
 
 
-
-
   button {   
          background-color: rgb(96, 56, 206);   
          width: 100%;  
@@ -21,9 +19,13 @@ Body {
            
    form {   
 
-        margin-top: 5%;
+        margin-top: 10%;
+        margin-left: 20%;
+        margin-right: 20%;
           border: 3px solid #f1f1f1;   
           border-radius: 30px;
+          
+
       }   
    input[type=text], input[type=password] {   
           width: 100%;   
@@ -39,8 +41,8 @@ Body {
       }   
     .cancelbtn {   
           width: auto;   
-          padding: 10px 18px;  
-          margin: 10px 5px;  
+          padding: 5px 10px;  
+          margin: 5px 10px;  
       }   
           
        
@@ -49,3 +51,5 @@ Body {
           background-color: lightgray;  
           border-radius: 30px;
       }  
+    
+      
