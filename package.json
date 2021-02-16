@@ -1,0 +1,23 @@
+{
+  "name": "javascript-base",
+  "version": "1.0.0",
+  "description": "code base for javascript practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subalouis/Javascript-base.git"
+  },
+  "author": "Louis Andrei Suba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subalouis/Javascript-base/issues"
+  },
+  "homepage": "https://github.com/subalouis/Javascript-base#readme",
+  "dependencies": {
+    "express": "file:express",
+    "mysql": "^2.18.1"
+  }
+}
