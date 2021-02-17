@@ -1,23 +1,27 @@
 // loading app server using express
-const express = require('express')
-const app = express()
-const mysql = requre ('mysql')
-const morgan = require ('morgan')
+const express = require('express');
+const app = express();
+const mysql = require ('mysql');
+const morgan = require ('morgan');
 
-var connect = mysql.createConnection({
+var connection = mysql.createConnection({
+    //properties
     host: "localhost",
-    user: "user",
-    password: "mypass"
+    user: "root",
+    password: '',
+    database: 'sampleDB'
 }); //sql connection
 
-connect.connect(function(err){
+connection.connect(function(error){
     if(!!error){
-        console.log("")
+        console.log("Error");
+    } else{
+        console.log("Connected");
     }
+    
 })
 
-
-app.use(morgan('short'))                //logging
+app.use(morgan('short'))   ;             //logging
 
 app.get("/", (req, res) => {            //routing
     console.log("Responding to root route")
