@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: '',
-    database: 'sampleDB'
+    database: ''
 }); //sql connection
 
 connection.connect(function(error){
@@ -29,10 +29,7 @@ app.get("/", (req, res) => {            //routing
 })
 
 app.get("/users", (req, res) => {
-    var user1 = {firstname: "Matt", lastname: " 🌵" }
-    const user2 = {firstname: "Van", lastname: "Payumo"}
-    res.json([user1,user2])
-
+    
     // res.send("Nodemon auto updates every time I send this file")
 })
 
