@@ -1,4 +1,4 @@
-Body {  
+Body {
     font-family: 'Montserrat', sans-serif;  
     background-color: #f1f1f1;  
   }  
@@ -50,4 +50,6 @@ Body {
           border-radius: 30px;
       }  
     
-      
+    .title {
+      text-align:center;
+    }  
