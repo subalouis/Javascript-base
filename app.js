@@ -32,10 +32,18 @@ app.post ('/get_data', (req,res) =>{ //connecting using post method on <forms> f
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
     
-    const queryString = "INSERT INTO users (username_password"
-    getConnection().query
+    const queryString = "INSERT INTO users VALUES (?, ?)" 
+    getConnection().query(queryString,[lastname,firstname,middleinitial,email,studentnumber,username,password,confirmpassword], (err, results, fields) =>{
+        if(err) {
+            console.log("Error in query")
+            res.sendStatus(500)
+            return
+        }
+        console.log("Inserted Succesfully with id: ", results.insertedId);
+        res.end();
+    })
 
-    res.send();
+    res.end();
 });
 function getConnection(){
     return mysql.createConnection({ //sqlconnection
