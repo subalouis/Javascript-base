@@ -11,6 +11,10 @@ app.use(express.static("./sites")); //routing ./sites folder
 app.use(express.static("./sites/img")); //routing ./img folder
 app.use(morgan("short")); //logging
 
+const path = require("path")
+
+
+//registration
 app.post ('/get_data', (req,res) =>{ //connecting using post method on <forms> from index.html
     console.log("--Trying to create a new user--");
 
@@ -41,10 +45,10 @@ app.post ('/get_data', (req,res) =>{ //connecting using post method on <forms> f
         }
         console.log("Inserted Succesfully with id: ", results.insertedId);
         res.end();
-    })
+    }) 
     res.end();
 });
-function getConnection(){
+function getConnection(){ 
     return mysql.createConnection({ //sqlconnection
         //properties
         host: "localhost",
