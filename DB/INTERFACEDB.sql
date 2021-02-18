@@ -1,4 +1,4 @@
-CREATE DATABASE interface;
+drop DATABASE interface;
 CREATE DATABASE if not exists `interface`;
 USE interface;
 
@@ -23,14 +23,16 @@ CREATE TABLE IF NOT exists `admin`(
 CREATE TABLE IF NOT exists `log`(
 	`username` varchar(50) not null,
 	`studentnumber` int(10) not null,
-    `date`CURRENT_TIMESTAMP() not null,
+    primary key (`studentnumber`)
     );
     
 insert into `admin`
 values ('admin','admin');
     
-
-insert into `users`
-values ('Suba','Louis','L','cs.subalouis@gmail.com',123456789, 'louissuba','passa123','passa123');
+-- truncate table `users`;
+-- insert into `users`
+-- values ('Suba','Louis','L','cs.subalouis@gmail.com',123456789, 'louissuba','passa123','passa123');
         
 SELECT * FROM users;
+SELECT * FROM admin;
+SELECT * FROM log;
