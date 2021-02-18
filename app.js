@@ -4,7 +4,7 @@ const app = express();
 const mysql = require("mysql");
 const morgan = require("morgan");
 const { request } = require("express");
-
+//new packages
 const bodyParser = require ('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static("./sites")); //routing ./sites folder
