@@ -7,32 +7,44 @@
     <link rel= "stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href = "https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel = "icon" href="/sites/img/CCSNew.png">
+    <link rel = "icon" href="/CCSNew.png">
 </head>    
 <body>    
-     <h1><center><b>Registration Form</b></center></h1>  <hr>  
+     <h1><b> <img src="/CCSNew.png" alt="ccslogo"><center> REGISTRATION FORM</b></center></h1>   
    
-    <form>  
+    <form action="get_data" method="POST" style="margin-top: 5%;">  
         <div class="container">   
-            <label> Last Name :</label>   
+            <!-- userinputs -->
+            <label> <center> Last Name :</label>   
             <input type="text" placeholder="Enter Last Name" name="lastname" required>  
 
             <label> First Name :</label>   
             <input type="text" placeholder="Enter First Name" name="firstname" required> 
 
             <label> Middle Initial</label>   
-            <input type="text" placeholder="Middle Initial" name="middleinitial" required>
+            <input type="text" placeholder="Middle Initial e.g L. / D.C" name="middleinitial" >
+
+            <label> Email</label>   
+            <input type="text" placeholder="email@domainname.com" name="email" >
+
+            <label>Student Number</label>   
+            <input type="text" placeholder="10 digit Student Number" name="studentnumber" >
+
+            <label> Username</label>   
+            <input type="text" placeholder="Username" name="username" required>
+
+            <label> Password</label>   
+            <input type="password" placeholder="Password" name="password" required>
+
+            <label> Confirm Password</center/label>   
+            <input type="password" placeholder=" Confirm Password" name="confirmpassword" required>
             
-            
-
-
-
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required>  
-            <button type="submit">Sign up</button>   
+            <button type="submit">Sign up</button> 
+            <center>
             <input type="checkbox" checked="checked"> Remember me   
             <button type="button" class="cancelbtn"> Cancel</button>   
             Dont have an account? <br> <a href="#"> <center> create here </center> </a>   
+        </center>  
         </div>   
     </form>     
 </body>     
