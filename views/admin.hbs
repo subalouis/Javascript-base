@@ -1,0 +1,27 @@
+<!DOCTYPE html>   
+<html>   
+    <head>  
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+            <title> Admin Login </title>  
+  
+                <link rel= "stylesheet" href="/style.css">
+                <link rel="preconnect" href="https://fonts.gstatic.com">
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+                <link rel = "icon" href="/CCSNew.png">
+                    </head>    
+                        <body>    
+                        <h1 class="title"><b>ADMINISTRATOR LOGIN</b><br> </h1>    
+                            <form action = "/admin_login" method="POST">  
+                                <div class="container">   
+                                    <label> <center> Username : </center</label>   
+                                    <input type="text" placeholder="Enter Username" name="username" required>  
+                                    <label>Password : </label>   
+                                    <input type="password" placeholder="Enter Password" name="password" required>  
+                                    <button type="submit"><a href="http://localhost/phpmyadmin/sql.php?server=1&db=interface&table=users&pos=0" target="_blank"> Login as Administrator </a> </button>   
+                                    <input type="checkbox" checked="checked"> Remember me   
+                                    <button type="button" class="cancelbtn">  Cancel</button>   
+                                    Not an administrator? <br> <a href="/" target="_blank"> click here </a> 
+                                </div>   
+                            </form>     
+                        </body>     
+                    </html>
