@@ -21,8 +21,8 @@ function getConnection(){
     console.log("MYSQL is running")
 }
 
-
 ////////////////////posts/////////////////////////////////
+
 router.post ('/get_data', (req,res) =>{ //connecting using post method on <forms> from index.html
     const connection = getConnection()
     console.log("--Trying to create a new user--");
@@ -54,8 +54,28 @@ router.post ('/get_data', (req,res) =>{ //connecting using post method on <forms
         }
         console.log("Inserted Succesfully with id: ", results.insertedId);
         res.end();
+
+
+    getConnection.query() = ("SELECT username FROM users WHERE username = ?", [email],(error, result) => {
+        
+        if (!err){
+            console.log (error)
+        }
+            if (result.lenght > 0) {
+                return res.render('registration', {
+                message: 'Email is already in use, create a new one.'
+                })
+            }
+            else if (password !== confirmpassword){
+                return res.render('registration', {
+                message: 'passwords do not match.'
+            })
+        }
     }) 
     res.end();
-});
+    
+    })
+})
+
 const router2 = require('./users')
 module.exports = router
