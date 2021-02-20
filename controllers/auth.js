@@ -34,7 +34,7 @@ exports.registration = (req, res) => {
             console.log(err);
         }
 
-        if (results.length > 0) {
+        if (results) {
             return res.render('registration', {
                 message: 'username is already taken'
             });
@@ -44,7 +44,7 @@ exports.registration = (req, res) => {
             })
         }
 
-        getConnection().query(`INSERT INTO users SET ?`, { username: username, email: email, password: password }, (err, result) => {
+        getConnection().query(`INSERT INTO users SET ?`, { lastname : lastname, firstname : firstname, middleinitial:middleinitial,  username: username, email: email, password: password, confirmpassword : confirmpassword}, (err, result) => {
             if (err) {
                 console.log(err);
             } else {
