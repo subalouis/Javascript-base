@@ -5,14 +5,14 @@ USE interface;
 DROP TABLE USERS;
 CREATE TABLE IF NOT EXISTS `users`(
 
-    `lastname` varchar(50) not null,
-    `firstname` varchar(50) not null,
-    `middleinitial` varchar(5) not null,
-    `email` varchar(50) not null,
-     `studentnumber` int not null auto_increment,
-    `username` varchar(20)  not null,
-    `password` varchar(100) not null,
-    `confirmpassword` varchar(100) not null,
+    `lastname` varchar(50),
+    `firstname` varchar(50),
+    `middleinitial` varchar(5),
+    `email` varchar(50),
+     `studentnumber` int auto_increment,
+    `username` varchar(20),
+    `password` varchar(100),
+    `confirmpassword` varchar(100),
     primary key (`studentnumber`)
 )auto_increment = 2021000;
 
