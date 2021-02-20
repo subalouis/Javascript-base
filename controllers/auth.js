@@ -85,10 +85,10 @@ exports.login = (req, res) => {
             } else {
               console.log("login succesfully");
               res.end();
+                        }
+                    }
+                );
             }
-          }
-        );
-      }
-    }
-  );
+        }
+    );
 };
