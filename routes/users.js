@@ -56,5 +56,5 @@ router.get("/users/:username", (req, res) => {
     });
     // res.end();
 });
-const router3 = require ('./post')
+
 module.exports = router

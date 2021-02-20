@@ -12,7 +12,7 @@
 <body>    
      <h1><b> <img src="/CCSNew.png" alt="ccslogo"><center> REGISTRATION FORM</b></center></h1>   
    
-    <form action="get_data" method="POST" style="margin-top: 5%;">  
+    <form action="/auth/registration" method="POST" style="margin-top: 5%;">  
         <div class="container">   
             <!-- userinputs -->
             <label> <center> Last Name :</label>   
@@ -26,9 +26,6 @@
 
             <label> Email</label>   
             <input type="text" placeholder="email@domainname.com" name="email" >
-
-            <label>Student Number</label>   
-            <input type="text" placeholder="10 digit Student Number" name="studentnumber" >
 
             <label> Username</label>   
             <input type="text" placeholder="Username" name="username" required>
@@ -46,10 +43,11 @@
             <center>Already a user? login <a href="/index"> here </center> </a>   
             Site admin?<a href="/admin">click here</a>
         </center>  
-        </div>   
+        {{#if message}}
+    <h4 class = 'alert alert-danger mt-4'>{{message}}</h4>
+    {{/if}} 
+        </div>  
     </form>     
-    {{#if message}}
-    <h4 class = 'alert alert-danger mt-4'>{{message: }}</h4>
-    {{/if}}
+   
 </body>     
 </html>

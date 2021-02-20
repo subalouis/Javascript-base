@@ -10,11 +10,9 @@ const { request } = require("express");
 //new packages
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static("./sites")); //routing ./sites folder
-app.use(express.static("./sites/img")); //routing ./img folder
 app.use(morgan("short")); //logging
 
-//hbs pathiing
+//hbs pathing
 const publicDirectrory = path.join(__dirname, './public')
 app.use(express.static(publicDirectrory))
 app.set('view engine', 'hbs');
@@ -33,7 +31,6 @@ app.listen(2004, () => {
 app.use('/auth', require ('./routes/auth'))
 const router = require('./routes/users.js') //requiring user.js to be used in this file
 app.use('/', require('./routes/pages'))
-app.use('/', require('./routes/post'))
 app.use(router)
 
 
