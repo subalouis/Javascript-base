@@ -12,7 +12,7 @@
 <body>    
      <h1><b> <img src="/img/CCSNew.png" alt="ccslogo"><center> REGISTRATION FORM</b></center></h1>   
    
-    <form action="get_data" method="POST" style="margin-top: 5%;">  
+    <form action="/auth/registration" method="POST" style="margin-top: 5%;">  
         <div class="container">   
             <!-- userinputs -->
             <label> <center> Last Name :</label>   
@@ -26,9 +26,6 @@
 
             <label> Email</label>   
             <input type="text" placeholder="email@domainname.com" name="email" >
-
-            <label>Student Number</label>   
-            <input type="text" placeholder="10 digit Student Number" name="studentnumber" >
 
             <label> Username</label>   
             <input type="text" placeholder="Username" name="username" required>
@@ -46,6 +43,7 @@
             <center>Already a user? <a href="/img/3rd.html">login here</center> </a>   
             Site admin?<a href="/img/5th.html" target="_balnk">click here</a>
         </center>  
+
         </div>   
     </form>  
     <hr>
@@ -63,10 +61,16 @@
                 <area share="rect" coords="1,1,1000,1000" alt="dhvsu link" href="https://dhvsu.edu.ph/" target="_blank">
             </map>      
         </div>
-    </div>  
-
+          {{#if message}}
+    <h4 class = 'alert alert-danger mt-4'>{{message}}</h4>
+    {{/if}} 
+        </div>  
+        
+    </div> 
     <footer class="footerRegister">
     <center><p>No copyright infrengement intended for educational purposes only.</p></center>
+      
+    </form>     
     </footer>
-</body>    
+</body>     
 </html>
