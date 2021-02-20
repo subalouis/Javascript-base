@@ -28,13 +28,13 @@ exports.registration = (req, res) => {
 
     const { lastname, firstname, middleinitial, email, username, password, confirmpassword } = req.body;
 
-    const queryString = "SELECT email FROM users WHERE email = ?"
-    getConnection().query(queryString, [email], async (err, results) => {
+    const queryString = "SELECT username FROM users WHERE username = ?"
+    getConnection().query(queryString, [username], async (err, results) => {
         if (err) {
             console.log(err);
         }
 
-        if (results) {
+        if (results.length > 0) {
             return res.render('registration', {
                 message: 'username is already taken'
             });
