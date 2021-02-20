@@ -40,10 +40,10 @@ exports.registration = (req, res) =>  {
             console.log("Error in query" + err)
             res.sendStatus(500)
             return
-        }
+        } 
         console.log("Inserted Succesfully ");
 
-getConnection().query = ("SELECT username FROM users WHERE username = ?", [username],(error, result) => {
+        getConnection().query = ("SELECT username FROM users WHERE username = ?", [username],(error, result) => {
         
         if (!err){
             console.log (error)
@@ -58,7 +58,7 @@ getConnection().query = ("SELECT username FROM users WHERE username = ?", [usern
                 message: 'passwords do not match.'
                     })
                 }
-            }) 
+            });
     res.render('index');
     })
 };
@@ -77,12 +77,14 @@ exports.login = (req, res) =>{
             //         return
             //     }
            connection.query("SELECT `firstname`, `middleinitial`, `lastname`, `email`, `studentnumber` FROM `users` WHERE `username` = ?", [username], (err, rows, fields) => {
-                if(err){
+                if(!!err){
                     console.log("Login fail" + err)
                     res.sendStatus(500)
+                    res.end
                 }
                 else{
                     console.log("login succesfully")
+                    res.end()
                 }
             })
             

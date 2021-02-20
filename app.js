@@ -10,7 +10,7 @@ const { request } = require("express");
 //new packages
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(morgan("short")); //logging
+//app.use(morgan("short")); //logging
 
 //hbs pathing
 const publicDirectrory = path.join(__dirname, './public')
