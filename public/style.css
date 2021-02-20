@@ -4,11 +4,14 @@ Body {
     margin:0;
 
   }  
-h1{
+h1{  
   margin: 0% 0%;
   background-color:rgb(96, 56, 206);  
-  padding: 20px 15px;
+  padding: 10px 10px;
   color: #f1f1f1;
+  position: fixed;
+  top: 0px;
+  width: 100%;
 }
 
 h1 img{
@@ -30,7 +33,7 @@ button {
     font: size 15px;
            }   
 a{
-    color: black;
+    color: rgb(96, 56, 206);
     font-weight: bolder;
 }
 
@@ -68,5 +71,50 @@ button:hover {
 
 .title {
     text-align:center;
-}  
+}
 
+.logos{
+    text-align: center;
+
+}
+
+.logo{
+    display:inline-block;
+}
+
+
+hr {
+    background-color:rgb(96, 56, 206);
+}
+
+.footerindex{
+    margin: 0% 0%;
+  background-color:rgb(96, 56, 206);  
+  padding: 20px 15px;
+  color: #f1f1f1;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+
+}
+
+.footerRegister {
+    margin: 0% 0%;
+  background-color:rgb(96, 56, 206);  
+  padding: 20px 15px;
+  color: #f1f1f1;
+  position: absolute;
+  bottom: -160px;
+  width: 100%;
+}
+
+.footerAdmin{
+    margin: 0% 0%;
+  background-color:rgb(96, 56, 206);  
+  padding: 20px 15px;
+  color: #f1f1f1;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+
+}
