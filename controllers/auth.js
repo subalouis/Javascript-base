@@ -1,18 +1,18 @@
 const { response } = require("express");
-const { createConnection } = require("mysql")
-const mysql = require ('mysql')
+const { createConnection } = require("mysql");
+const mysql = require("mysql");
 
 //mysql pool
 const pool = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    database: 'interface',
+  connectionLimit: 10,
+  host: "localhost",
+  user: "root",
+  database: "interface",
 }); //sql connectionD
 
-function getConnection(){ 
-    return pool
-    console.log("MYSQL is running");
+function getConnection() {
+  return pool;
+  console.log("MYSQL is running");
 }
 // connecting using post method on <forms> from index.html
 exports.registration = (req, res) => {
@@ -26,59 +26,69 @@ exports.registration = (req, res) => {
         console.log("password: " + req.body.password),
         console.log("confirm password: " + req.body.confirmpassword)
 
-    const lastname = req.body.lastname
-    const firstname = req.body.firstname
-    const middleinitial = req.body.middleinitial
-    const email = req.body.email
-    const username = req.body.username
-    const password = req.body.password
-    const confirmpassword = req.body.confirmpassword
+    const { lastname, firstname, middleinitial, email, username, password, confirmpassword } = req.body;
 
-    const queryString = "INSERT INTO users (`lastname`,`firstname`,`middleinitial`,`email`,`username`,`password`,`confirmpassword`) VALUES  (?, ?, ?, ?, ?, ?, ?)"
-    getConnection().query(queryString, [lastname, firstname, middleinitial, email, username, password, confirmpassword], (err, results, fields) => {
+    const queryString = "SELECT email FROM users WHERE email = ?"
+    getConnection().query(queryString, [email], async (err, results) => {
         if (err) {
-            console.log("Error in query" + err)
-            res.sendStatus(500)
-        } else {
-            console.log("Inserted Succesfully ");
-            if (results.length > 0) {
+            console.log(err);
+        }
+
+        if (results.length > 0) {
+            return res.render('registration', {
+                message: 'username is already taken'
+            });
+        } else if (password !== confirmpassword) {
+            return res.render('registration', {
+                message: 'Password do not match'
+            })
+        }
+
+        getConnection().query(`INSERT INTO users SET ?`, { username: username, email: email, password: password }, (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(result);
                 return res.render('registration', {
-                    message: 'username is already taken'
-                });
-            } else if (password !== confirmpassword) {
-                return res.render('registration', {
-                    message: 'password do not match.'
+                    message: 'User registered'
                 });
             }
-        }
-    })
+        });
+
+    });
 };
 
-exports.login = (req, res) =>{
-    const connection = getConnection()
-    const username = req.body.username;
-    const password = req.body.password;
+exports.login = (req, res) => {
+  const connection = getConnection();
+  const username = req.body.username;
+  const password = req.body.password;
 
-    connection.query("SELECT * FROM `users` WHERE `username` = ? AND password = ?", [username,password], (err, results, fields) => {
-        if ( results.length>0 ){
-            // connection.query("SELECT `student` FROM `users` WHERE `username` = ?", [username], (err, results, fields) => {
-            //     if (err){
-            //         console.log("Error in query" + err)
-            //         res.sendStatus(500)
-            //         return
-            //     }
-           connection.query("SELECT `firstname`, `middleinitial`, `lastname`, `email`, `studentnumber` FROM `users` WHERE `username` = ?", [username], (err, rows, fields) => {
-                if(!!err){
-                    console.log("Login fail" + err)
-                    res.sendStatus(500)
-                    res.end
-                }
-                else{
-                    console.log("login succesfully")
-                    res.end()
-                }
-            })
-            
-        }
-    })
-} 
+  connection.query(
+    "SELECT * FROM `users` WHERE `username` = ? AND password = ?",
+    [username, password],
+    (err, results, fields) => {
+      if (results.length > 0) {
+        // connection.query("SELECT `student` FROM `users` WHERE `username` = ?", [username], (err, results, fields) => {
+        //     if (err){
+        //         console.log("Error in query" + err)
+        //         res.sendStatus(500)
+        //         return
+        //     }
+        connection.query(
+          "SELECT `firstname`, `middleinitial`, `lastname`, `email`, `studentnumber` FROM `users` WHERE `username` = ?",
+          [username],
+          (err, rows, fields) => {
+            if (!!err) {
+              console.log("Login fail" + err);
+              res.sendStatus(500);
+              res.end;
+            } else {
+              console.log("login succesfully");
+              res.end();
+            }
+          }
+        );
+      }
+    }
+  );
+};
