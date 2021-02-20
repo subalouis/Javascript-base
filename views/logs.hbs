@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <title> ✔ Welcome </title>  
+  
+    <link rel= "stylesheet" href="/css/styling2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href = "https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel = "icon" href="/img/CCSNew.png">
+    </head>
+    <body>
+        <div class="Userphoto">
+            {{#each dummy}}
+            <img src="/img/dummy-image.jpg" alt="accountpic" id="accountpic">
+            <h1>User profile</h1>
+            <div class="Data">
+                <p>Username: {{Lname}}, {{fname}}, {{mname}}</p>
+                <p>E-mail: {{email}}</p>
+                <p>Timestamp: {{timestamp}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+        {{#if log}}
+        <table>
+            <tr>
+                <th>Date</th>
+                <!-- <th>dummy</th>  --> table header
+                <th>dummy</th>
+            </tr>
+            {{each log}}
+            <tr>
+                <!-- <td>{{data}}</td>  --> table data for datas log
+                <td>{{data}}</td>
+                <td>{{data}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+
+    </body>
+</html>
