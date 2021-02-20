@@ -15,7 +15,7 @@ router.get('/admin', (req, res) => {
 router.get('/registration', (req, res) => {
     res.render('registration')
 })
-router.get('/usermain', (req, res) => {
+router.get('/dashboard', (req, res) => {
     res.render('landing')
 })
 router.get('logs', (req, res) => {

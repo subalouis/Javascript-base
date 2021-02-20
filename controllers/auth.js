@@ -15,51 +15,42 @@ function getConnection(){
     console.log("MYSQL is running");
 }
 // connecting using post method on <forms> from index.html
-exports.registration = (req, res) =>  {
+exports.registration = (req, res) => {
     const connection = getConnection()
     console.log("--Trying to create a new user--"),
-    console.log ("lastname: " + req.body.lastname),
-    console.log ("firstname: " + req.body.firstname),
-    console.log ("middleinitial:"  + req.body.middleinitial),
-    console.log ("email:"  + req.body.email),
-    console.log ("username: " + req.body.username),
-    console.log ("password: " + req.body.password),
-    console.log ("confirm password: "  + req.body.confirmpassword)
-    
+        console.log("lastname: " + req.body.lastname),
+        console.log("firstname: " + req.body.firstname),
+        console.log("middleinitial:" + req.body.middleinitial),
+        console.log("email:" + req.body.email),
+        console.log("username: " + req.body.username),
+        console.log("password: " + req.body.password),
+        console.log("confirm password: " + req.body.confirmpassword)
+
     const lastname = req.body.lastname
-    const firstname= req.body.firstname
+    const firstname = req.body.firstname
     const middleinitial = req.body.middleinitial
     const email = req.body.email
     const username = req.body.username
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
-     
-    const queryString = "INSERT INTO users (`lastname`,`firstname`,`middleinitial`,`email`,`username`,`password`,`confirmpassword`) VALUES  (?, ?, ?, ?, ?, ?, ?)" 
-    getConnection().query(queryString,[lastname,firstname,middleinitial,email,username,password,confirmpassword], (err, results, fields) =>{
-        if(err) {
+
+    const queryString = "INSERT INTO users (`lastname`,`firstname`,`middleinitial`,`email`,`username`,`password`,`confirmpassword`) VALUES  (?, ?, ?, ?, ?, ?, ?)"
+    getConnection().query(queryString, [lastname, firstname, middleinitial, email, username, password, confirmpassword], (err, results, fields) => {
+        if (err) {
             console.log("Error in query" + err)
             res.sendStatus(500)
-            return
-        } 
-        console.log("Inserted Succesfully ");
-
-        getConnection().query = ("SELECT username FROM users WHERE username = ?", [username],(error, result) => {
-        
-        if (!err){
-            console.log (error)
-        }
-            if (result.length > 0) {
+        } else {
+            console.log("Inserted Succesfully ");
+            if (results.length > 0) {
                 return res.render('registration', {
-                message: 'username is already in use, create a new one.'
-                })
+                    message: 'username is already taken'
+                });
+            } else if (password !== confirmpassword) {
+                return res.render('registration', {
+                    message: 'password do not match.'
+                });
             }
-            else if (password !== confirmpassword){
-                return res.render('registration', {
-                message: 'passwords do not match.'
-                    })
-                }
-            });
-    res.render('index');
+        }
     })
 };
 
