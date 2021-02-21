@@ -4,14 +4,16 @@ Body {
     margin:0;
 
   }  
+  
 h1{  
   margin: 0% 0%;
   background-color:rgb(96, 56, 206);  
   padding: 10px 10px;
   color: #f1f1f1;
-  position: fixed;
+  position: static;
   top: 0px;
   width: 100%;
+  
 }
 
 h1 img{
@@ -21,6 +23,14 @@ h1 img{
     margin-bottom: 5px;
 }
 
+.containers{
+    width: 100%;
+    height: 150px;
+    margin: auto, auto;
+    border: 5px solid black;
+    
+    
+}
 button {   
     background-color: rgb(96, 56, 206);   
     width: 100%;  
@@ -31,14 +41,20 @@ button {
     border-radius: 30px;
     font-weight: bolder;
     font: size 15px;
-           }   
+}   
+
 a{
     color: rgb(96, 56, 206);
     font-weight: bolder;
 }
 
-form {   
-    margin-top: 5%;
+#name{
+    size: 20px;
+}
+
+form { 
+    text-align: center;  
+    margin-top: 20px;
     margin-left: 20%;
     margin-right: 20%;
     border: 3px solid #f1f1f1;   
@@ -69,6 +85,20 @@ button:hover {
     border-radius: 30px;
 }  
 
+form img{
+   
+    position: relative;
+
+
+}
+
+.userinfo{
+    text-align: center;
+    line-height: 26px;
+    position: relative;
+    
+}
+
 .title {
     text-align:center;
 }
@@ -80,6 +110,7 @@ button:hover {
 
 .logo{
     display:inline-block;
+ 
 }
 
 
@@ -92,7 +123,7 @@ hr {
   background-color:rgb(96, 56, 206);  
   padding: 20px 15px;
   color: #f1f1f1;
-  position: absolute;
+  position: relative;
   bottom: 0px;
   width: 100%;
 
@@ -103,7 +134,7 @@ hr {
   background-color:rgb(96, 56, 206);  
   padding: 20px 15px;
   color: #f1f1f1;
-  position: absolute;
+  position: relative;
   bottom: -160px;
   width: 100%;
 }
@@ -113,7 +144,7 @@ hr {
   background-color:rgb(96, 56, 206);  
   padding: 20px 15px;
   color: #f1f1f1;
-  position: absolute;
+  position: relative;
   bottom: 0px;
   width: 100%;
 

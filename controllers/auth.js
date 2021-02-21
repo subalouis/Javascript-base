@@ -79,25 +79,30 @@ exports.registration = (req, res) => {
 
 exports.login = (req, res) => {
     const connection = getConnection();
-    const { username, password ,studentnumber, firstName, lastName } = req.body; //declaration
+    const { username, password  } = req.body; //declaration
         try{
             connection.query ("SELECT * FROM `users` WHERE `username` = ? ",[username], async (err, results) => {
-                console.log(results)
-                if(!results || password !==results[0].password){
+                // console.log(results)
+                if(results.length <=0){
                     res.status(401).render('index', {
                         message1: 'username or password is incorrect'
                     })
                 }
-                // else if(results || password !==results[0].password){
-                //     res.status(401).render('index', {
-                //         message1: 'password is incorrect'
-                //     })
-                // }
+               
                 else{
-                    connection.query('INSERT INTO logs VALUES (?, ?, current_timestamp())', [firstName, lastName ,username ], (error, res)=>res)
-                    console.log(results)
-                    res.status(200).redirect('/dashboard')
+                    connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results)=>{
+                        connection.query("SELECT `firstname`, `middleinitial`, `lastname`, `studentnumber`, `email` FROM `users` WHERE `username` = ?",[username], (err, rows) =>{
+                            rows = Object.values(JSON.parse(JSON.stringify(rows)));
+                           
+                            const fullname = `${rows[0].lastname}, ${rows[0].firstname} ${rows[0].middleinitial}.`;
+                            // console.log(fullname)
+                            console.log(rows)
+                            res.render('dashboard', {fullname : fullname, studentnumber : rows[0].studentnumber, email : rows[0].email});
+                        })
+                    })
+
                 }
+
             }) 
         }catch (err){
                 console.log(err)
@@ -108,22 +113,23 @@ exports.admin = (req, res) => {
     const connection = getConnection();
     const { username, password } = req.body; //declaration
         try{
-            connection.query ("SELECT * FROM `admin` WHERE `username` = ? ",[username], async (err, results) => {
+            connection.query ("SELECT * FROM `admin` WHERE `username` = ? ",[username], (err, results) => {
                 console.log(results)
-                if(!results || password !==results[0].password){
+                if(results.length <=0){
                     res.status(401).render('admin', {
                         message1: 'username or password is incorrect'
                     })
                 }
-                // else if(results || password !==results[0].password){
-                //     res.status(401).render('index', {
-                //         message1: 'password is incorrect'
-                //     })
-                // }
+
                 else{
-                    connection.query('INSERT INTO logs VALUES (?, ?, current_timestamp())', [firstName, lastName ,username ], (error, res)=>res)
-                    console.log(results)
-                    res.status(200).redirect('/logs')
+                    connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results)=>{
+                        connection.query("SELECT * FROM `logs` ",[username], (err, rows) =>{
+
+                            console.log(rows)
+                            res.render('logs', {results : rows});
+                        })
+                    })
+
                 }
             }) 
         }catch (err){

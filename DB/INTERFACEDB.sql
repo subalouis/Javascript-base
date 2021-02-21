@@ -28,7 +28,7 @@ CREATE TABLE IF NOT exists `log`(
     primary key (`studentnumber`)
     );
     
-insert into `admin`s
+insert into `admin`
 values ('admin','admin');
     
 truncate table `users`;

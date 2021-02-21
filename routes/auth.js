@@ -9,4 +9,5 @@ router.post('/registration', authController.registration)
 router.post('/login', authController.login)
 router.post('/admin', authController.admin)
 
+
 module.exports = router
