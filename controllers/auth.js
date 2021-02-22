@@ -81,7 +81,7 @@ exports.login = (req, res) => {
     const connection = getConnection();
     const { username, password  } = req.body; //declaration
         try{
-            connection.query ("SELECT * FROM `users` WHERE `username` = ? ",[username], async (err, results) => {
+            connection.query ("SELECT * FROM `users` WHERE `username` = ? AND `password` = ?",[username, password], async (err, results) => {
                 // console.log(results)
                 if(results.length <=0){
                     res.status(401).render('index', {
