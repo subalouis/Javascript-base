@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h1><b> 
+    <h1><b>
             <center> USER PROFILE
         </b></center>
     </h1>
@@ -20,22 +20,22 @@
     <form action="/auth/registration" method="POST" style="margin-top: 5%;">
         <div class="container">
             <!-- userinputs -->
-           <img src="/Dummy-image.jpg" alt="" width="300px" id="userimg">
-           <div class="userinfo">
-               <br>
-                    {{#if fullname}}
-                    <h2><b>Name: </b>{{fullname}}</h2>
-                    {{/if}}
-                    
-                    {{#if studentnumber}}
-                    <b>Student Number: </b> {{studentnumber}} <br>
-                    {{/if}}
-                    
-                    {{#if email}}
-                    <b>Email: </b> {{email}} <br>
-                    {{/if}}
+            <img src="/Dummy-image.jpg" alt="" width="300px" id="userimg">
+            <div class="userinfo">
+                <br>
+                {{#if fullname}}
+                <h2><b>Name: </b>{{fullname}}</h2>
+                {{/if}}
 
-               </div>
+                {{#if studentnumber}}
+                <b>Student Number: </b> {{studentnumber}} <br>
+                {{/if}}
+
+                {{#if email}}
+                <b>Email: </b> {{email}} <br>
+                {{/if}}
+
+            </div>
         </div>
     </form>
     <hr>
@@ -55,13 +55,13 @@
                 <area share="rect" coords="1,1,1000,1000" alt="dhvsu link" href="https://dhvsu.edu.ph/" target="_blank">
             </map>
         </div>
-        
+
     </div>
     </div>
     <footer class="footerRegister">
         <center>
             <p>No copyright infrengement intended <br>
-                 for educational purposes only.</p>
+                for educational purposes only.</p>
         </center>
 
         </form>

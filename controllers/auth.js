@@ -44,11 +44,11 @@ exports.registration = (req, res) => {
 
         if (results.length > 0) {
             return res.render('registration', {
-                message: "username is already taken",
+                message5: "username is already taken",
             });
         } else if (password !== confirmpassword) {
             return res.render('registration', {
-                message: "Password do not match",
+                message5: "Passwords do not match",
             });
         }
 
@@ -79,60 +79,60 @@ exports.registration = (req, res) => {
 
 exports.login = (req, res) => {
     const connection = getConnection();
-    const { username, password  } = req.body; //declaration
-        try{
-            connection.query ("SELECT * FROM `users` WHERE `username` = ? AND `password` = ?",[username, password], async (err, results) => {
-                // console.log(results)
-                if(results.length <=0){
-                    res.status(401).render('index', {
-                        message1: 'username or password is incorrect'
-                    })
-                }
-               
-                else{
-                    connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results)=>{
-                        connection.query("SELECT `firstname`, `middleinitial`, `lastname`, `studentnumber`, `email` FROM `users` WHERE `username` = ?",[username], (err, rows) =>{
-                            rows = Object.values(JSON.parse(JSON.stringify(rows)));
-                           
-                            const fullname = `${rows[0].lastname}, ${rows[0].firstname} ${rows[0].middleinitial}.`;
-                            // console.log(fullname)
-                            console.log(rows)
-                            res.render('dashboard', {fullname : fullname, studentnumber : rows[0].studentnumber, email : rows[0].email});
-                        })
-                    })
+    const { username, password } = req.body; //declaration
+    try {
+        connection.query("SELECT * FROM `users` WHERE `username` = ? AND `password` = ?", [username, password], async (err, results) => {
+            // console.log(results)
+            if (results.length <= 0) {
+                res.status(401).render('index', {
+                    message1: 'username or password is incorrect'
+                })
+            }
 
-                }
+            else {
+                connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results) => {
+                    connection.query("SELECT `firstname`, `middleinitial`, `lastname`, `studentnumber`, `email` FROM `users` WHERE `username` = ?", [username], (err, rows) => {
+                        rows = Object.values(JSON.parse(JSON.stringify(rows)));
 
-            }) 
-        }catch (err){
-                console.log(err)
-        } 
+                        const fullname = `${rows[0].lastname}, ${rows[0].firstname} ${rows[0].middleinitial}.`;
+                        // console.log(fullname)
+                        console.log(rows)
+                        res.render('dashboard', { fullname: fullname, studentnumber: rows[0].studentnumber, email: rows[0].email });
+                    })
+                })
+
+            }
+
+        })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 exports.admin = (req, res) => {
     const connection = getConnection();
     const { username, password } = req.body; //declaration
-        try{
-            connection.query ("SELECT * FROM `admin` WHERE `username` = ? ",[username], (err, results) => {
-                console.log(results)
-                if(results.length <=0){
-                    res.status(401).render('admin', {
-                        message1: 'username or password is incorrect'
+    try {
+        connection.query("SELECT * FROM `admin` WHERE `username` = ? ", [username], (err, results) => {
+            console.log(results)
+            if (results.length <= 0) {
+                res.status(401).render('admin', {
+                    message3: 'username or password is incorrect'
+                })
+            }
+
+            else {
+                connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results) => {
+                    connection.query("SELECT * FROM `logs` ", [username], (err, rows) => {
+
+                        console.log(rows)
+                        res.render('logs', { results: rows });
                     })
-                }
+                })
 
-                else{
-                    connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results)=>{
-                        connection.query("SELECT * FROM `logs` ",[username], (err, rows) =>{
-
-                            console.log(rows)
-                            res.render('logs', {results : rows});
-                        })
-                    })
-
-                }
-            }) 
-        }catch (err){
-                console.log(err)
-        } 
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
 }

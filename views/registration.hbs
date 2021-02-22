@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h1><b> <img src="/CCSNew.png" alt="ccslogo">
+    <h1><b>
             <center> REGISTRATION FORM
         </b></center>
     </h1>
@@ -44,11 +44,21 @@
                 <input type="password" placeholder=" Confirm Password" name="confirmpassword" required>
 
                 <button type="submit">Sign up</button>
+
+                {{#if message}}
+                <h4 class='alert alert-danger mt-4'>{{message}} <br> click <a href="/">here</a> to log in</h4>
+                {{/if}}
+
+                {{#if message5}}
+                <h4 class='alert alert-danger mt-4'>{{message5}} </h4>
+                {{/if}}
+
                 <center>
                     <input type="checkbox" checked="checked"> Remember me
-                    <button type="button" class="cancelbtn"> Cancel</button>
-                    <center>Already a user? <a href="/">login here</center> </a>
-                    Site admin?<a href="/admin" target="_blank">click here</a>
+                    <br><br>
+                    <a href="admin"> <button type="button" class="cancelbtn" method="POST">ADMINISTRATOR LOGIN</button>
+                    </a>
+
                 </center>
 
         </div>
@@ -70,9 +80,7 @@
                 <area share="rect" coords="1,1,1000,1000" alt="dhvsu link" href="https://dhvsu.edu.ph/" target="_blank">
             </map>
         </div>
-        {{#if message}}
-        <h4 class='alert alert-danger mt-4'>{{message}}  click <a href="/">here</a> to log in</h4>
-        {{/if}}
+
     </div>
 
     </div>

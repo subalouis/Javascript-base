@@ -3,10 +3,6 @@ const express = require ('express')
 const mysql = require ('mysql')
 const router = express.Router()
 
-router.get('/messages', (req,res) => {
-    console.log('outputting messages --')
-    res.end();    
-});
 
 //mysql pool
 const pool = mysql.createPool({

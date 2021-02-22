@@ -1,32 +1,40 @@
-drop DATABASE interface;
+-- creating database and table
 CREATE DATABASE if not exists `interface`;
-USE interface;
 
-DROP TABLE USERS;
 CREATE TABLE IF NOT EXISTS `users`(
-
-    `lastname` varchar(50),
-    `firstname` varchar(50),
-    `middleinitial` varchar(5),
-    `email` varchar(50),
+    `lastname` VARCHAR(50),
+    `firstname` VARCHAR(50),
+    `middleinitial` VARCHAR(5),
+    `email` VARCHAR(50),
      `studentnumber` int auto_increment,
-    `username` varchar(20),
-    `password` varchar(100),
-    `confirmpassword` varchar(100),
+    `username` VARCHAR(20),
+    `password` VARCHAR(100),
+    `confirmpassword` VARCHAR(100),
     primary key (`studentnumber`)
 )auto_increment = 2021000;
 
 CREATE TABLE IF NOT exists `admin`(
-	`username` varchar(20) not null,
-    `password` varchar(50) not null,
+	`username` VARCHAR(20) not null,
+    `password` VARCHAR(50) not null,
     primary key (`username`)
     );
-    
+   
 CREATE TABLE IF NOT exists `log`(
-	`username` varchar(50) not null,
+	`username` VARCHAR(50) not null,
 	`studentnumber` int(10) not null,
     primary key (`studentnumber`)
     );
+    
+    CREATE TABLE `interface`.`temp` (
+    `username` VARCHAR (20) NOT NULL , 
+    `datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP 
+    );
+
+--using current database
+USE interface;  
+--dropping database and tables
+DROP TABLE `users`;
+DROP DATABASE `interface`
     
 insert into `admin`
 values ('admin','admin');
@@ -39,4 +47,5 @@ SELECT * FROM users;
 SELECT * FROM admin;
 SELECT * FROM log;
 select * from users where username = 'louissuba'
+
 select username, email, firstname, middleinitial, lastname from users where username = 'louissuba';

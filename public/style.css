@@ -7,7 +7,7 @@ Body {
   
 h1{  
   margin: 0% 0%;
-  background-color:rgb(96, 56, 206);  
+  background-color:teal;  
   padding: 10px 10px;
   color: #f1f1f1;
   position: static;
@@ -32,7 +32,7 @@ h1 img{
     
 }
 button {   
-    background-color: rgb(96, 56, 206);   
+    background-color: teal;   
     width: 100%;  
     color: #f1f1f1;   
     padding: 15px;   
@@ -66,7 +66,7 @@ form {
     margin: 8px 0;  
     padding: 12px 20px;   
     display: inline-block;   
-    border: 2px solid rgb(62, 49, 121);   
+    border: 2px solid  teal;   
     box-sizing: border-box;   
     border-radius: 30px;
 }  
@@ -81,7 +81,7 @@ button:hover {
               
 .container {   
     padding: 25px;   
-    background-color: lightgray;  
+    background-color: rgb(188, 213, 221);  
     border-radius: 30px;
 }  
 
@@ -115,7 +115,7 @@ form img{
 
 
 hr {
-    background-color:rgb(96, 56, 206);
+    background-color: teal;
 }
 footer{
     position: relative;
@@ -124,10 +124,10 @@ footer{
 }
 .footerindex{
     margin: 0% 0%;
-  background-color:rgb(96, 56, 206);  
+  background-color:teal;  
   padding: 20px 15px;
   color: #f1f1f1;
-  position: static;
+  position: absolute;
   bottom: 0px;
   width: 100%;
 
@@ -135,7 +135,7 @@ footer{
 
 .footerRegister {
     margin: 0% 0%;
-  background-color:rgb(96, 56, 206);  
+  background-color:teal;  
   padding: 20px 15px;
   color: #f1f1f1;
   position: relative;
@@ -145,10 +145,10 @@ footer{
 
 .footerAdmin{
     margin: 0% 0%;
-  background-color:rgb(96, 56, 206);  
+  background-color:teal;  
   padding: 20px 15px;
   color: #f1f1f1;
-  position: relative;
+  position: absolute;
   bottom: 0px;
   width: 100%;
 

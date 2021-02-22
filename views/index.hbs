@@ -1,39 +1,45 @@
-<!DOCTYPE html>   
-<html>   
-    <head>  
-        <meta name="viewport" content="width=device-width, initial-scale=1">  
-            <title> Login Page </title>  
-  
-                <link rel= "stylesheet" href="/style.css">
-                <link rel="preconnect" href="https://fonts.gstatic.com">
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-                <link rel = "icon" href="/CCSNew.png">
-                    </head>    
-                        <body>    
-                        <h1 class="title"><b>DHVSU COLLEGE OF COMPUTING STUDIES</b> <br> </h1>    
-                            <form action = "/auth/login" method="POST">  
-                                <div class="container">   
-                                    <label> <center> Username : </center</label>   
-                                    <input type="text" placeholder="Enter Username" name="username" required>  
-                                    <label>Password : </label>   
-                                    <input type="password" placeholder="Enter Password" name="password" required>  
-                                    <button type="submit"><a href="#"> Login </a> </button>   
-                                    <input type="checkbox" checked="checked"> Remember me   
-                                    <button type="button" class="cancelbtn">  Cancel</button>   
-                                    Don't have an account? <br> <a href="registration" target="_blank"> click here to create one! </a><br>
-                                    Site admin?<a href="admin" target="_blank">click here</a>   
+<!DOCTYPE html>
+<html>
 
-                                    {{#if message1}}
-                                    <h4 class='alert alert-danger mt-4'>{{message1}}</h4>
-                                    {{/if}}
-                                </div>   
-                                  {{#if message1}}
-                                    <h4 class='alert alert-danger mt-4'>{{message1}}</h4>
-                                    {{/if}}
-                            </form>
-                            
-                            <footer class="footerindex">
-                            <center><p>No copyright infrengement intended for educational purposes only.</p></center>
-                            </footer>
-                        </body>     
-                    </html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Login Page </title>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="icon" href="/CCSNew.png">
+</head>
+
+<body>
+    <h1 class="title"><b>DHVSU COLLEGE OF COMPUTING STUDIES</b> <br> </h1>
+    <form action="/auth/login" method="POST">
+        <div class="container">
+            <label>
+                <center> Username : </center< /label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <label>Password : </label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <button type="submit"><a href="#"> Login </a> </button>
+                    <input type="checkbox" checked="checked"> Remember me
+                    <br><br>
+
+                    <a href="registration"> <button type="button" class="cancelbtn" method="POST">REGISTER</button> </a>
+                    <a href="admin"> <button type="button" class="cancelbtn" method="POST">ADMINISTRATOR LOGIN</button>
+                    </a>
+
+                    {{#if message1}}
+                    <h4 class='alert alert-danger mt-4'>{{message1}}</h4>
+                    {{/if}}
+        </div>
+
+    </form>
+
+    <footer class="footerindex">
+        <center>
+            <p>No copyright infrigement intended <br> for educational purposes only.</p>
+        </center>
+    </footer>
+</body>
+
+</html>
