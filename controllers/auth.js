@@ -113,13 +113,13 @@ exports.admin = (req, res) => {
     const connection = getConnection();
     const { username, password } = req.body; //declaration
     try {
-        connection.query("SELECT * FROM `admin` WHERE `username` = ? ", [username], (err, results) => {
+        connection.query("SELECT * FROM `admin` WHERE `username` = ? AND password = ? ", [username, password], (err, results) => {
             console.log(results)
             if (results.length <= 0) {
-                res.status(401).render('admin', {
-                    message3: 'username or password is incorrect'
-                })
-            }
+                return res.render('admin', {
+                    message3: "wrong username or password. Please contact your IT administrator"
+                });
+            } 
 
             else {
                 connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results) => {
