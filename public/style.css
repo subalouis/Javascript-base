@@ -75,8 +75,8 @@ button:hover {
 }   
 .cancelbtn {   
     width: auto;   
-    padding: 5px 10px;  
-    margin: 5px 10px;  
+    padding: 10px 10px;  
+    margin: 10px 10px;  
 }   
               
 .container {   
@@ -150,6 +150,19 @@ button:hover {
 hr {
     background-color: teal;
 }
+
+.logout{
+  position:fixed;
+  right: 20px;
+  top: 60px;
+}
+.viewdata{
+  position:fixed;
+  right: 20px;
+  top: 110px;
+}
+
+
 footer{
     position: relative;
     bottom: 0%;
@@ -174,6 +187,16 @@ footer{
   position: relative;
   bottom: 0px;
   width: 100%;
+}
+
+.footerDashboard {
+  margin: 0% 0%;
+background-color:teal;  
+padding: 20px 15px;
+color: #f1f1f1;
+position: absolute;
+bottom: 0px;
+width: 100%;
 }
 
 .footerAdmin{
