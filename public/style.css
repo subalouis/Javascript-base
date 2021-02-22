@@ -21,9 +21,9 @@ h1 img{
     width: 60px;
     margin-top: 0px;
     margin-bottom: 5px;
-}
-
-.containers{
+  }
+  
+  .containers {
     width: 100%;
     height: 150px;
     margin: auto, auto;
@@ -41,23 +41,23 @@ button {
     border-radius: 30px;
     font-weight: bolder;
     font: size 15px;
-}   
-
-a{
+  }
+  
+  a {
     color: rgb(96, 56, 206);
     font-weight: bolder;
-}
-
-#name{
+  }
+  
+  #name {
     size: 20px;
-}
-
-form { 
-    text-align: center;  
+  }
+  
+  form {
+    text-align: center;
     margin-top: 20px;
     margin-left: 20%;
     margin-right: 20%;
-    border: 3px solid #f1f1f1;   
+    border: 3px solid #f1f1f1;
     border-radius: 30px;
   }   
 
@@ -83,27 +83,23 @@ button:hover {
     padding: 25px;   
     background-color: rgb(188, 213, 221);  
     border-radius: 30px;
-}  
-
-form img{
-   
+  }
+  
+  form img {
     position: relative;
-
-
-}
-
-.userinfo{
+  }
+  
+  .userinfo {
     text-align: center;
     line-height: 26px;
     position: relative;
-    
-}
-
-.title {
-    text-align:center;
-}
-
-.logos{
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .logos {
     text-align: center;
 
 }
@@ -121,8 +117,8 @@ footer{
     position: relative;
     bottom: 0%;
     margin-bottom: 0;
-}
-.footerindex{
+  }
+  .footerindex {
     margin: 0% 0%;
   background-color:teal;  
   padding: 20px 15px;

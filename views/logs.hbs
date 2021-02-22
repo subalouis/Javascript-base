@@ -9,31 +9,31 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styling2.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="icon" href="/img/CCSNew.png">
-</head>
+    <link href = "https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel = "icon" href="/img/CCSNew.png">
+    </head>
+    <body>
 
-<body>
-    <table class="table table-striped">
-
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">USER</th>
-                <th scope="col">DATE/TIME</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            {{#each results}}
-            <tr>
-                <td>{{username}}</td>
-                <td>{{datetime}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-
-    </table>
-
-</body>
-
+        <center>
+       <table class=tabledesign>
+                        <div class="tablehead">
+                        <thead>
+                            <tr>
+                                <th scope="col">USER</th>
+                                <th scope="col">DATE/TIME</th>
+                            </tr>
+                        </thead>
+                        </div>
+                        <tbody>
+                            {{#each results}} 
+                            <tr>
+                                <td>{{username}}</td>
+                                <td>{{datetime}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                        
+                    </table>
+                   </center>
+    </body>
 </html>
