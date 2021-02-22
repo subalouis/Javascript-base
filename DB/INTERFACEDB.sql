@@ -19,33 +19,41 @@ CREATE TABLE IF NOT exists `admin`(
     primary key (`username`)
     );
    
-CREATE TABLE IF NOT exists `log`(
-	`username` VARCHAR(50) not null,
-	`studentnumber` int(10) not null,
-    primary key (`studentnumber`)
-    );
+
     
-    CREATE TABLE `interface`.`temp` (
+    CREATE TABLE `logs` (
     `username` VARCHAR (20) NOT NULL , 
     `datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP 
     );
 
---using current database
-USE interface;  
---dropping database and tables
+-- using current database
+USE `interface`;  
+
+-- dropping database and tables
 DROP TABLE `users`;
-DROP DATABASE `interface`
-    
+DROP TABLE `admin`;
+DROP TABLE `logs`;
+DROP DATABASE `interface`;
+
+-- deleting table/database data
+TRUNCATE TABLE `users`;
+TRUNCATE TABLE `admin`;
+TRUNCATE TABLE `logs`;
+TRUNCATE DATABASE `interface`
+  
+-- inserting admin details
 insert into `admin`
 values ('admin','admin');
     
-truncate table `users`;
-INSERT INTO users (`lastname`,`firstname`,`middleinitial`,`email`,`studentnumber`,`username`,`password`,`confirmpassword`)
-values ('Suba','Louis','L','cs.subalouis@gmail.com',123456789, 'louissuba','passa123','passa123');
-        
+-- user insertion syntax
+INSERT INTO users (`lastname`,`firstname`,`middleinitial`,`email`,`,`username`,`password`,`confirmpassword`)
+values ('lastName','firsName','MI','sample@domain.com', 'userName','password1234','passwordConfirm1234');
+
+-- selecting all from tables     
 SELECT * FROM users;
 SELECT * FROM admin;
-SELECT * FROM log;
+SELECT * FROM logs;
 select * from users where username = 'louissuba'
 
-select username, email, firstname, middleinitial, lastname from users where username = 'louissuba';
+-- specific data lookup
+SELECT `username`, `email`, `firsname`, `middleinitial`, `lastname` FROM `users` WHERE `username` = 'username';
