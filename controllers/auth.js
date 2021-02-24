@@ -30,27 +30,30 @@ exports.registration = (req, res) => {
         lastname,
         firstname,
         middleinitial,
+        studentnumber,
         email,
         username,
         password,
         confirmpassword,
     } = req.body;
 
-    const queryString = "SELECT username FROM users WHERE username = ?";
-    getConnection().query(queryString, [username], async (err, results) => {
+    const queryString = "SELECT `username` FROM `users` WHERE `username` = ? OR `studentnumber` = ?";
+    getConnection().query(queryString, [username, studentnumber], async (err, results) => {
         if (err) {
             console.log(err);
         }
 
         if (results.length > 0) {
             return res.render('registration', {
-                message5: "username is already taken",
+                message5: "username or studentnumber is already taken",
             });
         } else if (password !== confirmpassword) {
             return res.render('registration', {
                 message5: "Passwords do not match",
             });
         }
+       
+        
 
         getConnection().query(
             `INSERT INTO users SET ?`,
@@ -58,6 +61,7 @@ exports.registration = (req, res) => {
                 lastname: lastname,
                 firstname: firstname,
                 middleinitial: middleinitial,
+                studentnumber: studentnumber,
                 username: username,
                 email: email,
                 password: password,
@@ -90,7 +94,7 @@ exports.login = (req, res) => {
             }
 
             else {
-                connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [username], (error, results) => {
+                connection.query('INSERT INTO `logs` (`username`) VALUES (?)', [results[0].studentnumber], (error, results) => {
                     connection.query("SELECT `firstname`, `middleinitial`, `lastname`, `studentnumber`, `email` FROM `users` WHERE `username` = ?", [username], (err, rows) => {
                         rows = Object.values(JSON.parse(JSON.stringify(rows)));
 
